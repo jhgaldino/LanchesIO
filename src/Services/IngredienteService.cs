@@ -1,10 +1,10 @@
-﻿using LanchesIO.Models;
+﻿using LanchesIO.src.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace LanchesIO.Services
+namespace LanchesIO.src.Services
 {
     public class IngredienteService
     {
@@ -15,7 +15,7 @@ namespace LanchesIO.Services
             return Task.FromResult(ingredientes.AsEnumerable());
         }
 
-        public Task<Ingrediente> GetIngredienteByIdAsync(int id)
+        public Task<Ingrediente?> GetIngredienteByIdAsync(int id)
         {
             var ingrediente = ingredientes.FirstOrDefault(i => i.Id == id);
             return Task.FromResult(ingrediente);

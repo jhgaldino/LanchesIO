@@ -1,4 +1,4 @@
-﻿namespace LanchesIO.Models
+﻿namespace LanchesIO.src.Models
 {
     public class Pedido
     {
@@ -25,6 +25,19 @@
             }
 
             return total;
+        }
+
+        public void Validate()
+        {
+            if (Lanches == null || !Lanches.Any())
+            {
+                throw new ArgumentException("O pedido deve ter pelo menos um lanche.");
+            }
+
+            foreach (var lanche in Lanches)
+            {
+                lanche.Validate();
+            }
         }
     }
 }

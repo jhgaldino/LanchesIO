@@ -1,10 +1,10 @@
-﻿using LanchesIO.Models;
+﻿using LanchesIO.src.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace LanchesIO.Services
+namespace LanchesIO.src.Services
 {
     public class PedidoService
     {
@@ -15,7 +15,7 @@ namespace LanchesIO.Services
             return Task.FromResult(pedidos.AsEnumerable());
         }
 
-        public Task<Pedido> GetPedidoByIdAsync(int id)
+        public Task<Pedido?> GetPedidoByIdAsync(int id)
         {
             var pedido = pedidos.FirstOrDefault(p => p.Id == id);
             return Task.FromResult(pedido);

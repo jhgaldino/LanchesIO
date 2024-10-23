@@ -1,9 +1,9 @@
-﻿using LanchesIO.Models;
+﻿using LanchesIO.src.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LanchesIO.Services
+namespace LanchesIO.src.Services
 {
     public class LancheService
     {
@@ -14,7 +14,7 @@ namespace LanchesIO.Services
             return Task.FromResult(lanches.AsEnumerable());
         }
 
-        public Task<Lanche> GetLancheByIdAsync(int id)
+        public Task<Lanche?> GetLancheByIdAsync(int id)
         {
             var lanche = lanches.FirstOrDefault(l => l.Id == id);
             return Task.FromResult(lanche);
@@ -22,6 +22,7 @@ namespace LanchesIO.Services
 
         public Task<Lanche> AddLancheAsync(Lanche lanche)
         {
+            lanche.Validate();
             lanche.Id = lanches.Count > 0 ? lanches.Max(l => l.Id) + 1 : 1;
             lanches.Add(lanche);
             return Task.FromResult(lanche);
@@ -34,6 +35,8 @@ namespace LanchesIO.Services
             {
                 return Task.FromResult(false);
             }
+
+            updatedLanche.Validate();
             lanche.Nome = updatedLanche.Nome;
             lanche.Ingredientes = updatedLanche.Ingredientes;
             return Task.FromResult(true);

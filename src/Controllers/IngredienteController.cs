@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using LanchesIO.Models;
-using LanchesIO.Services;
+using LanchesIO.src.Services;
+using LanchesIO.src.Models;
 
-namespace LanchesIO.Controllers
+namespace LanchesIO.src.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
