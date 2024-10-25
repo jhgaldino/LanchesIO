@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LanchesIO.API", "LanchesIO.
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "LanchesIOApp", "..\LanchesIOApp\LanchesIOApp.esproj", "{4E454AC0-A324-47BA-80C0-81FA0155A7AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanchesIO.API.Tests", "..\LanchesIO.API.Tests\LanchesIO.API.Tests.csproj", "{5C188874-C5C2-4F77-A702-1C8298967F67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LanchesIO.API.Tests", "..\LanchesIO.API.Tests\LanchesIO.API.Tests.csproj", "{D38E7917-4446-43EB-BDFE-2ED43C2AB60A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +25,10 @@ Global
 		{4E454AC0-A324-47BA-80C0-81FA0155A7AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E454AC0-A324-47BA-80C0-81FA0155A7AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4E454AC0-A324-47BA-80C0-81FA0155A7AA}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{5C188874-C5C2-4F77-A702-1C8298967F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5C188874-C5C2-4F77-A702-1C8298967F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5C188874-C5C2-4F77-A702-1C8298967F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C188874-C5C2-4F77-A702-1C8298967F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38E7917-4446-43EB-BDFE-2ED43C2AB60A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38E7917-4446-43EB-BDFE-2ED43C2AB60A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38E7917-4446-43EB-BDFE-2ED43C2AB60A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38E7917-4446-43EB-BDFE-2ED43C2AB60A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

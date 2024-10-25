@@ -1,7 +1,9 @@
+using LanchesIO.API.src.Models;
+
 namespace LanchesIO.API.Interfaces
 {
     public interface IAuthService
     {
-        string Authenticate(string username, string password);
+        Task<LoginResponse?> LoginAsync(string username, string password);
     }
 }

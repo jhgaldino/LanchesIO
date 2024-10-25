@@ -17,14 +17,21 @@ namespace LanchesIO.API.Controllers
             _authService = authService;
         }
 
+        /// <summary>
+        /// Authenticates a user and returns a JWT token.
+        /// </summary>
+        /// <param name="userLogin">The user login details.</param>
+        /// <returns>A JWT token if authentication is successful.</returns>
         [HttpPost("login")]
-        public IActionResult Login([FromBody] UserLogin userLogin)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LoginResponse))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<IActionResult> Login([FromBody] UserLogin userLogin)
         {
-            var token = _authService.Authenticate(userLogin.Username, userLogin.Password);
-            if (token == null)
+            var token = await _authService.LoginAsync(userLogin.Username, userLogin.Password);
+            if (token is null)
                 return Unauthorized();
 
-            return Ok(new { token });
+            return Ok(token);
         }
     }
 }
