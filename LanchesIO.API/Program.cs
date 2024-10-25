@@ -3,6 +3,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using LanchesIO.API.src.Interfaces;
 using LanchesIO.API.src.Services;
+using LanchesIO.API.Services;
+using LanchesIO.API.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,9 +18,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ILancheService, LancheService>();
 builder.Services.AddScoped<IIngredienteService, IngredienteService>();
 builder.Services.AddScoped<IPedidoService, PedidoService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
-
-// Configurar Autenticação JWT
+// Configurar Autenticaï¿½ï¿½o JWT
 var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(options =>
 {
@@ -38,7 +40,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Adicionar Autorização
+// Adicionar Autorizaï¿½ï¿½o
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
