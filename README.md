@@ -1,21 +1,21 @@
 # LanchesIO
 
-## Descrição
+## Descriï¿½ï¿½o
 
-LanchesIO é uma aplicação para gerenciar lanches e seus ingredientes. A solução é composta por uma API desenvolvida em ASP.NET Core e um front-end desenvolvido em Angular.
+LanchesIO ï¿½ uma aplicaï¿½ï¿½o para gerenciar lanches e seus ingredientes. A soluï¿½ï¿½o ï¿½ composta por uma API desenvolvida em ASP.NET Core, um front-end desenvolvido em Angular e um banco de dados SQLite.
 
-## Pré-requisitos
+## Prï¿½-requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Node.js](https://nodejs.org/) (versão 18 ou superior)
-- [Angular CLI](https://angular.io/cli) (versão 18.0.3 ou superior)
-- [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (ou outro banco de dados configurado)
+- [Node.js](https://nodejs.org/) (versï¿½o 18 ou superior)
+- [Angular CLI](https://angular.io/cli) (versï¿½o 18.0.3 ou superior)
 
-## Configuração da API
 
-### Passos para Instalação
+## Configuraï¿½ï¿½o da API
 
-1. Clone o repositório:
+### Passos para Instalaï¿½ï¿½o
+
+1. Clone o repositï¿½rio:
 
 git clone https://github.com/seu-usuario/LanchesIO.git
 
@@ -24,20 +24,12 @@ git clone https://github.com/seu-usuario/LanchesIO.git
 cd LanchesIO/src/LanchesIO.API
 ```
 
-3. Abra o arquivo `appsettings.json` e configure a conexão com o banco de dados:
-
-```json
-{
-  "ConnectionStrings": {
-	"DefaultConnection": "Server=localhost;Database=LanchesIO;User Id=sa;Password=senha;"
-  }
-}
-```
+3. Abra o arquivo `appsettings.json` e configure a conexï¿½o com o banco de dados:
 
 4. Execute o comando para criar o banco de dados:
 dotnet ef database update
 
-5 .Execute a API:
+5. Execute a API:
 ```bash
 dotnet run
 ```
@@ -45,33 +37,32 @@ dotnet run
 6. Acesse a URL da API:
 [https://localhost:5001/swagger](https://localhost:5001/swagger)
 
-A aplicação estará disponível em `http://localhost:4200`.
 
 
 ### Testes da API
 
-Para executar os testes da API, navegue até o diretório `LanchesIO.API.Tests` e execute:
+Para executar os testes da API, navegue atï¿½ o diretï¿½rio `LanchesIO.API.Tests` e execute:
 
 ```bash
 dotnet test
 ```
 
-## Configuração do Front-end
+## Configuraï¿½ï¿½o do Front-end
 
-### Passos para Instalação
+### Passos para Instalaï¿½ï¿½o
 
 1. Acesse a pasta do front-end:
 ```bash
 cd LanchesIO/src/LanchesIOApp
 ```
-2. Instale as dependências:
+2. Instale as dependï¿½ncias:
 ```bash
 npm install
 ```
 
 3. Execute o front-end:
 ```bash
-1. ng serve
+ng serve
 ```
 
 
