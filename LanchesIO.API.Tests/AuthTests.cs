@@ -21,13 +21,13 @@ namespace LanchesIO.API.Tests
         public async Task Login_ReturnsOkResult_WithToken()
         {
             // Arrange
-            var userLogin = new UserLogin { Username = "testuser", Password = "password" };
+            var userLoginRequest = new UserLoginRequest { Username = "testuser", Password = "password" };
             var token = new LoginResponse { Token = "valid_token", Expiration = DateTime.UtcNow.AddHours(1) };
-            _mockAuthService.Setup(service => service.LoginAsync(userLogin.Username, userLogin.Password))
+            _mockAuthService.Setup(service => service.LoginAsync(userLoginRequest.Username, userLoginRequest.Password))
                             .ReturnsAsync(token);
 
             // Act
-            var result = await _authController.Login(userLogin);
+            var result = await _authController.Login(userLoginRequest);
 
             // Assert
             var okResult = Assert.IsType<OkObjectResult>(result);
@@ -40,12 +40,12 @@ namespace LanchesIO.API.Tests
         public async Task Login_ReturnsUnauthorized_WhenCredentialsAreInvalid()
         {
             // Arrange
-            var userLogin = new UserLogin { Username = "testuser", Password = "wrongpassword" };
-            _mockAuthService.Setup(service => service.LoginAsync(userLogin.Username, userLogin.Password))
+            var userLoginRequest = new UserLoginRequest { Username = "testuser", Password = "wrongpassword" };
+            _mockAuthService.Setup(service => service.LoginAsync(userLoginRequest.Username, userLoginRequest.Password))
                             .ReturnsAsync((LoginResponse?)null);
 
             // Act
-            var result = await _authController.Login(userLogin);
+            var result = await _authController.Login(userLoginRequest);
 
             // Assert
             Assert.IsType<UnauthorizedResult>(result);

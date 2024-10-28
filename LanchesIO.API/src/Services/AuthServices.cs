@@ -7,10 +7,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using LanchesIO.API.Interfaces;
 using LanchesIO.API.src.Models;
-using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using LanchesIO.API.Controllers;
-using Moq;
+using LanchesIO.API.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace LanchesIO.API.Services
 {
@@ -18,11 +18,11 @@ namespace LanchesIO.API.Services
     {
         private readonly IConfiguration _configuration;
         private readonly byte[] _key;
-        private readonly Mock<IAuthService> _mockAuthService;
-        private readonly AuthController _authController;
+        private readonly AppDbContext _context;
 
-        public AuthService(IConfiguration configuration)
+        public AuthService(AppDbContext context, IConfiguration configuration)
         {
+            _context = context;
             _configuration = configuration;
             var jwtKey = _configuration["Jwt:Key"];
             if (string.IsNullOrEmpty(jwtKey))
@@ -30,16 +30,27 @@ namespace LanchesIO.API.Services
                 throw new ArgumentNullException(nameof(jwtKey), "JWT key cannot be null or empty.");
             }
             _key = Convert.FromBase64String(jwtKey);
-            _mockAuthService = new Mock<IAuthService>();
-            _authController = new AuthController(_mockAuthService.Object);
         }
 
         public async Task<LoginResponse?> LoginAsync(string username, string password)
         {
-            // Implement the method logic here
-            return await Task.FromResult<LoginResponse?>(null); // Placeholder implementation
-        }
+            var user = await _context.Users.SingleOrDefaultAsync(u => u.Username == username && u.Password == password);
+            if (user == null)
+            {
+                return null;
+            }
 
-        // Rest of the code...  
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[] { new Claim(ClaimTypes.Name, username) }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(_key), SecurityAlgorithms.HmacSha256Signature)
+            };
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+
+            return new LoginResponse { Token = tokenString, Expiration = tokenDescriptor.Expires };
+        }
     }
 }

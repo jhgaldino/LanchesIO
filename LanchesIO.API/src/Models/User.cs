@@ -1,8 +1,8 @@
 ﻿namespace LanchesIO.API.src.Models
 {
-    public class UserLogin
+    public class User
     {
-        public required int Id { get; set; }
+        public int Id { get; set; } // Defina a chave primária
         public required string Username { get; set; }
         public required string Password { get; set; }
     }

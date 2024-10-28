@@ -25,13 +25,15 @@ namespace LanchesIO.API.Controllers
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(LoginResponse))]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<IActionResult> Login([FromBody] UserLogin userLogin)
+        public async Task<IActionResult> Login([FromBody] UserLoginRequest userLoginRequest)
         {
-            var token = await _authService.LoginAsync(userLogin.Username, userLogin.Password);
-            if (token is null)
+            var response = await _authService.LoginAsync(userLoginRequest.Username, userLoginRequest.Password);
+            if (response == null)
+            {
                 return Unauthorized();
+            }
 
-            return Ok(token);
+            return Ok(response);
         }
     }
 }

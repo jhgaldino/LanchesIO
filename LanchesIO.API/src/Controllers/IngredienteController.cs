@@ -21,6 +21,10 @@ namespace LanchesIO.API.Controllers
             _validator = new IngredienteValidation();
         }
 
+/// <summary>
+/// Lista todos os ingredientes
+/// </summary>
+/// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ingrediente>>> GetIngredientes()
         {
@@ -28,6 +32,11 @@ namespace LanchesIO.API.Controllers
             return Ok(ingredientes);
         }
 
+/// <summary>
+/// Busca um ingrediente pelo id
+/// </summary>
+/// <param name="id"></param>
+/// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Ingrediente>> GetIngrediente(int id)
         {
@@ -39,6 +48,11 @@ namespace LanchesIO.API.Controllers
             return Ok(ingrediente);
         }
 
+/// <summary>
+/// Cria um novo ingrediente
+/// </summary>
+/// <param name="ingrediente"></param>
+/// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Ingrediente>> CreateIngrediente(Ingrediente ingrediente)
         {
@@ -52,6 +66,12 @@ namespace LanchesIO.API.Controllers
             return CreatedAtAction(nameof(GetIngrediente), new { id = createdIngrediente.Id }, createdIngrediente);
         }
 
+/// <summary>
+/// Atualiza um ingrediente pelo id
+/// </summary>
+/// <param name="id"></param>
+/// <param name="updatedIngrediente"></param>
+/// <returns></returns>
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateIngrediente(int id, Ingrediente updatedIngrediente)
         {
@@ -69,6 +89,11 @@ namespace LanchesIO.API.Controllers
             return NoContent();
         }
 
+/// <summary>
+/// Deleta um ingrediente pelo id
+/// </summary>
+/// <param name="id"></param>
+/// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteIngrediente(int id)
         {
