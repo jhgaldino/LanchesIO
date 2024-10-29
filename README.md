@@ -53,7 +53,7 @@ dotnet test
 ```bash
 cd LanchesIO/src/LanchesIOApp
 ```
-2. Instale as depend�ncias:
+2. Instale as dependências:
 ```bash
 npm install
 ```
