@@ -1,6 +1,6 @@
 # LanchesIO
 
-## Descri��o
+## Descrição
 
 LanchesIO é uma aplicação para gerenciar lanches e seus ingredientes. A solução é composta por uma API desenvolvida em ASP.NET Core, um front-end desenvolvido em Angular e um banco de dados SQLite.
 
