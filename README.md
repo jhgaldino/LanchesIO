@@ -16,21 +16,18 @@ LanchesIO é uma aplicação para gerenciar lanches e seus ingredientes. A solu�
 ### Passos para Instalação
 
 1. Clone o repositório:
-
+```bash
 git clone https://github.com/seu-usuario/LanchesIO.git
-
+```
 2. Acesse a pasta da API:
 ```bash
 cd LanchesIO/src/LanchesIO.API
 ```
 
-3. Abra o arquivo `appsettings.json` e configure a conexão com o banco de dados:
-
-
-5. Execute o comando para criar o banco de dados:
+4. Execute o comando para criar o banco de dados:
 dotnet ef database update
 
-6. Execute a API:
+5. Execute a API:
 ```bash
 dotnet run
 ```
