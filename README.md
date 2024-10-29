@@ -47,7 +47,7 @@ dotnet test
 
 ## Configuração do Front-end
 
-### Passos para Instala��o
+### Passos para Instalação
 
 1. Acesse a pasta do front-end:
 ```bash
