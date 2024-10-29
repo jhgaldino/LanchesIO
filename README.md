@@ -45,7 +45,7 @@ Para executar os testes da API, navegue at� o diret�rio `LanchesIO.API.Tests
 dotnet test
 ```
 
-## Configura��o do Front-end
+## Configuração do Front-end
 
 ### Passos para Instala��o
 
