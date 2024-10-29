@@ -2,20 +2,20 @@
 
 ## Descri��o
 
-LanchesIO � uma aplica��o para gerenciar lanches e seus ingredientes. A solu��o � composta por uma API desenvolvida em ASP.NET Core, um front-end desenvolvido em Angular e um banco de dados SQLite.
+LanchesIO é uma aplicação para gerenciar lanches e seus ingredientes. A solução é composta por uma API desenvolvida em ASP.NET Core, um front-end desenvolvido em Angular e um banco de dados SQLite.
 
-## Pr�-requisitos
+## Pré-requisitos
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
-- [Node.js](https://nodejs.org/) (vers�o 18 ou superior)
-- [Angular CLI](https://angular.io/cli) (vers�o 18.0.3 ou superior)
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- [Angular CLI](https://angular.io/cli) (versão 18.0.3 ou superior)
 
 
-## Configura��o da API
+## Configuração da API
 
-### Passos para Instala��o
+### Passos para Instalação
 
-1. Clone o reposit�rio:
+1. Clone o repositório:
 
 git clone https://github.com/seu-usuario/LanchesIO.git
 
@@ -24,12 +24,13 @@ git clone https://github.com/seu-usuario/LanchesIO.git
 cd LanchesIO/src/LanchesIO.API
 ```
 
-3. Abra o arquivo `appsettings.json` e configure a conex�o com o banco de dados:
+3. Abra o arquivo `appsettings.json` e configure a conexão com o banco de dados:
 
-4. Execute o comando para criar o banco de dados:
+
+5. Execute o comando para criar o banco de dados:
 dotnet ef database update
 
-5. Execute a API:
+6. Execute a API:
 ```bash
 dotnet run
 ```
